@@ -6,7 +6,7 @@ app = FastAPI()
 
 
 @app.get("/")
-async def welcome():
+async def welcome() -> str:
     return "Главная страница"
 
 
