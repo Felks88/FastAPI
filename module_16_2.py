@@ -11,12 +11,12 @@ async def welcome():
 
 
 @app.get("/user/admin")
-async def welcome_admin():
+async def welcome_admin() -> str:
     return "Вы вошли как администратор"
 
 
 @app.get("/user/{user_id}")
-async def get_user(user_id: Annotated[int, Path(ge=1, le=100, description='Enter User ID', example="79")]):
+async def get_user(user_id: Annotated[int, Path(ge=1, le=100, description='Enter User ID', example="79")]) -> str:
     return f"Вы вошли как пользователь № {user_id}"
 
 
