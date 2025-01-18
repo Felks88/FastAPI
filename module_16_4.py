@@ -24,11 +24,9 @@ async def add_user(username: Annotated[str, Path(min_length=5, max_length=20, de
                                                                                                  description="Enter age",
                                                                                                  example="24")]) -> User:
     new_id = max((user.id for user in users), default=0) + 1
-    #sers[new_id] = f"Имя: {username}, возраст: {age}"
     new_user = User(id=new_id, username=username, age=age)
     users.append(new_user)
     return new_user
-    #return f"User {new_id} is registered"
 
 
 @app.put('/user/{user_id}/{username}/{age}', response_model=User)
